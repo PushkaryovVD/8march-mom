@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+//Variables
+@heading-font: 'Pacifico', cursive;
+@main-font: 'Roboto', sans-serif;
+@footer-font: 'Marck Script', cursive;
+@main-color: #fff;
+@main-heading-color: #000;
+//
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+@keyframes heart-beating {
+  0% {
+    transform: scale(1.0);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+.index-link {
+  transition: all 0.5s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.center {
+  justify-content: center;
+}
+
+.header {
+  background-color: @main-color;
+  padding: 30px 0 50px;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
+  &__heading {
+    font-family: @heading-font;
+    color: @main-heading-color;
+    font-size: 48px;
+  }
+}
+
+.logo-block {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+
+.heart {
+  background: url("../pics/heart.svg") no-repeat;
+  background-size: cover;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  bottom: -25px;
+  z-index: 1;
+  animation: heart-beating 1s infinite ease-in-out;
+  &--left {
+    left: -25px;
+  }
+  &--right {
+    right: -25px;
+  }
+}
+
+.flowers {
+  width: 100%;
+  height: 100%;
+  background: url("../pics/flowers.svg") no-repeat;
+  background-size: cover;
+}
+
+.main {
+  min-height: 100vh;
+  margin-top: 50px;
+  &__heading {
+    text-align: center;
+    font-family: @main-font;
+    font-size: 36px;
+    &--margin-top {
+      margin-top: 50px;
+    }
+    &--margin-bottom {
+      margin-bottom: 50px;
+    }
+  }
+  &-iframe {
+    display: flex;
+  }
+}
+
+.presents {
+  margin-top: 100px;
+}
+
+.box {
+  &-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+
+  width: 300px;
+  height: 300px;
+  &--bg {
+    background: url("../pics/closed-gift.svg") no-repeat;
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  &__heading {
+    margin-top: 20px;
+    font-family: @main-font;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  &__text {
+    margin-top: 10px;
+    font-family: @main-font;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  &__link {
+    &:hover .box--bg {
+      background: url("../pics/preopened-gift.svg") no-repeat;
+    }
+    &:hover .box__heading {
+      transform: scale(1.1);
+    }
+    &:hover .box__text {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.iframe {
+  min-height: 500px;
+  &-container {
+    display: flex;
+    min-width: 320px;
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
+  }
+  &-height {
+    height: 100%;
+  }
+}
+
+.video {
+  width: 100%;
+}
+
+
+.footer {
+  padding: 30px 0;
+  box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.2);
+  &__text{
+    font-family: @footer-font;
+    font-size: 36px;
+    font-weight: 100;
+    text-align: center;
+  }
+}
+
+/*ACCORDION*/
+
+.accordion {
+  background-color: #fff;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  transition: 0.4s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  font-family: @main-font;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.active, .accordion:hover {
+  background-color: #b3e59f;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  font-family: 'Amatic SC', cursive;
+  font-size: 48px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  &-text {
+    font-family: @footer-font;
+  }
+}
